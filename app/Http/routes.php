@@ -15,6 +15,9 @@ $app->get('/', function() use ($app) {
     return view('index');
 });
 
+$app->get('/results', function() use ($app) {
+    return view('results');
+});
 
 $app->get('api/entry', 'EntryController@index');
 $app->post('api/entry', 'EntryController@store');
