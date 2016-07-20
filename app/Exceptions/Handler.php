@@ -7,6 +7,7 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Laravel\Lumen\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -47,7 +48,7 @@ class Handler extends ExceptionHandler
     {
         if ($e instanceof NotFoundHttpException)
         {
-            return Redirect::home(); // Or do here what ever you want
+            return redirect('/'); // Or do here what ever you want
         }
 
         return parent::render($request, $e);
